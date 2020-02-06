@@ -69,6 +69,8 @@ return [
 
         'smtp_accounts' => 'NetLinker\HighSender\Sections\SmtpAccounts\Controllers\SmtpAccountController',
 
+        'test_smtp_accounts' => 'NetLinker\HighSender\Sections\SmtpAccounts\Controllers\TestSmtpAccountController',
+
     ],
 
 ];

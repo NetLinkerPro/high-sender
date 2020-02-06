@@ -10,6 +10,7 @@ return [
     'options' => 'Opcje',
     'password' => 'Hasło',
     'save' => 'Zapisz',
+    'sent' => 'Wyślij',
     'user' => 'Użytkownik',
     'yes' => 'Tak',
 ];

@@ -64,6 +64,9 @@
                         <button type="submit" slot="toggler" class="btn">
                             {{ __('high-sender::general.options') }}
                         </button>
+                        <cm-button @click="AWES._store.commit('setData', {param: 'editAccount', data: d.data}); AWES.emit('modal::test-account:open')">
+                            {{ __('high-sender::smtp_accounts.sent_test_email') }}
+                        </cm-button>
                         <cm-button @click="AWES._store.commit('setData', {param: 'editAccount', data: d.data}); AWES.emit('modal::edit-account:open')">
                             {{ __('high-sender::general.edit') }}
                         </cm-button>
@@ -78,6 +81,18 @@
 @endsection
 
 @section('modals')
+
+    {{--Test account--}}
+    <modal-window name="test-account" class="modal_formbuilder" title="{{ __('high-sender::smtp_accounts.sent_test_email') }}">
+        <form-builder method="POST" url="{{ route('high-sender.test_smtp_accounts.sent') }}" store-data="editAccount" @sended="AWES.emit('content::smtp_accounts_table:update')"
+                      send-text="{{ __('high-sender::general.sent') }}"
+                      cancel-text="{{ __('high-sender::general.cancel') }}">
+            <div class="section">
+                <fb-input type="hidden" name="id"></fb-input>
+                <fb-input name="email_to" label="{{ __('high-sender::smtp_accounts.email_to') }}"></fb-input>
+            </div>
+        </form-builder>
+    </modal-window>
 
     {{--Add account--}}
     <modal-window name="form" class="modal_formbuilder" title="{{ __('high-sender::smtp_accounts.addition_account') }}">

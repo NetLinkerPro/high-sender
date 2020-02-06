@@ -1,0 +1,1 @@
+<div>{{__('high-sender::smtp_accounts.message_send_from_account')}}: {{$account->name}}</div>

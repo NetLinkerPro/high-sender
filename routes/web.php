@@ -27,13 +27,18 @@ Route::domain(config('high-sender.domain'))
             Route::get('/', config('high-sender.controllers.dashboard') . '@index')->name('index');
         });
 
-        # Accounts
+        # SMTP accounts
         Route::prefix('smtp-accounts')->as('smtp_accounts.')->group(function () {
             Route::get('/', config('high-sender.controllers.smtp_accounts') . '@index')->name('index');
             Route::get('scope', config('high-sender.controllers.smtp_accounts') . '@scope')->name('scope');
             Route::post('store', config('high-sender.controllers.smtp_accounts') . '@store')->name('store');
             Route::patch('{id?}', config('high-sender.controllers.smtp_accounts') . '@update')->name('update');
             Route::delete('{id?}', config('high-sender.controllers.smtp_accounts') . '@destroy')->name('destroy');
+        });
+
+        # Test SMTP accounts
+        Route::prefix('test-smtp-accounts')->as('test_smtp_accounts.')->group(function () {
+            Route::post('test', config('high-sender.controllers.test_smtp_accounts') . '@sent')->name('sent');
         });
 });
 
