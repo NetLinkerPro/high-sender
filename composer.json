@@ -1,0 +1,77 @@
+{
+    "name": "netlinker/high-sender",
+    "type": "library",
+    "description": "Laravel module for send e-mails with use AWES.io front",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "NetLinker",
+            "email": "netlinkerpro@gmail.com",
+            "homepage": "https://netlinker.pro",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/netlinkerpro/high-sender",
+    "keywords": ["NetLinker", "high-sender"],
+    "require": {
+        "awes-io/base-js": "^1.8",
+        "awes-io/context-menu": "^1.0",
+        "awes-io/form-builder": "^1.3",
+        "awes-io/indigo-layout": "^1.10",
+        "awes-io/localization-helper": "^1.0",
+        "awes-io/modal-window": "^1.0",
+        "awes-io/repository": "^1.0",
+        "awes-io/system-notify": "^1.1",
+        "awes-io/table-builder": "^1.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.5",
+        "illuminate/support": "~5|~6",
+        "symfony/dom-crawler": "^5.0",
+        "cybercog/laravel-ownership": "^5.2"
+    },
+    "require-dev": {
+        "brainmaestro/composer-git-hooks": "^2.8",
+        "jasonlewis/resource-watcher": "1.2.*",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "3.8.*",
+        "orchestra/testbench-dusk": "3.8.*",
+        "phpunit/phpunit": "^8.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "repositories": {
+        "0": {
+            "type": "composer",
+            "url": "https://repo.pkgkit.com",
+            "options": {
+                "http": {
+                    "header": [
+                        "API-TOKEN: dd6553e92dcf6b171c35924a6dc63daaec412f44e2cab6f42e00ebb14fc4ce96"
+                    ]
+                }
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "NetLinker\\HighSender\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NetLinker\\HighSender\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NetLinker\\HighSender\\HighSenderServiceProvider"
+            ],
+            "aliases": {
+                "HighSender": "NetLinker\\HighSender\\Facades\\HighSender"
+            }
+        }
+    },
+    "scripts": {
+        "pre-push": "./vendor/bin/phpunit && echo pushing!"
+    }
+}
