@@ -25,7 +25,7 @@ class CreateHighSenderSmtpAccountsTable extends Migration
             $table->string('host');
             $table->integer('port');
             $table->string('username');
-            $table->string('password');
+            $table->text('password');
             $table->string('encryption')->nullable();
             $table->string('from_name');
             $table->string('from_address');
