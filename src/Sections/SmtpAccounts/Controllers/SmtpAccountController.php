@@ -38,8 +38,8 @@ class SmtpAccountController extends BaseController
      */
     public function index(Request $request)
     {
-        return view('high-sender::sections.smtp_accounts.index', [
-            'h1' => __('high-sender::smtp_accounts.smtp_accounts'),
+        return view('high-sender::sections.smtp-accounts.index', [
+            'h1' => __('high-sender::smtp-accounts.smtp_accounts'),
             'accounts' => $this->scope($request)->response()->getData()
         ]);
     }
@@ -69,7 +69,7 @@ class SmtpAccountController extends BaseController
     {
         $this->smtpAccounts->create($request->all());
 
-        return notify(__('high-sender::smtp_accounts.new_account_was_successfully_added'));
+        return notify(__('high-sender::smtp-accounts.new_account_was_successfully_added'));
     }
 
     /**
@@ -100,6 +100,6 @@ class SmtpAccountController extends BaseController
     {
         $this->smtpAccounts->scopeOwner()->destroy($id);
 
-        return notify(__('high-sender::smtp_accounts.account_was_successfully_deleted'));
+        return notify(__('high-sender::smtp-accounts.account_was_successfully_deleted'));
     }
 }

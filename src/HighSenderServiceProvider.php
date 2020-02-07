@@ -33,7 +33,7 @@ class HighSenderServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/high_sender.php', 'high-sender');
+        $this->mergeConfigFrom(__DIR__ . '/../config/high-sender.php', 'high-sender');
 
         // Register the service the package provides.
         $this->app->singleton('high-sender', function ($app) {
@@ -61,23 +61,23 @@ class HighSenderServiceProvider extends ServiceProvider
 
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__ . '/../config/high_sender.php' => config_path('high_sender.php'),
-        ], 'high-sender.config');
+            __DIR__ . '/../config/high-sender.php' => config_path('high-sender.php'),
+        ], 'config');
 
         // Publishing the views.
         $this->publishes([
             __DIR__.'/../resources/views' => base_path('resources/views/vendor/high-sender'),
-        ], 'high-sender.views');
+        ], 'views');
 
         // Publishing assets.
         $this->publishes([
             __DIR__.'/../resources/assets' => public_path('vendor/high-sender'),
-        ], 'high-sender.views');
+        ], 'views');
 
         // Publishing the translation files.
         $this->publishes([
             __DIR__.'/../resources/lang' => resource_path('lang/vendor/high-sender'),
-        ], 'high-sender.views');
+        ], 'views');
 
         // Registering package commands.
         $this->commands([]);

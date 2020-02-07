@@ -31,6 +31,6 @@ class SentTest extends SmtpMailable
         return $this->from($account->from_address, $account->from_name)
             ->replyTo($account->from_address, $account->from_name)
             ->subject('Test email')
-            ->view('high-sender::sections.smtp_accounts.emails.test', ['account' => $account]);
+            ->view('high-sender::sections.smtp-accounts.emails.test', ['account' => $account]);
     }
 }

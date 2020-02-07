@@ -1,7 +1,7 @@
 @extends('high-sender::vendor.indigo-layout.main')
 
-@section('meta_title', __('high-sender::smtp_accounts.meta_title')  . ' // ' . config('app.name'))
-@section('meta_description', __('high-sender::smtp_accounts.meta_description'))
+@section('meta_title', __('high-sender::smtp-accounts.meta_title')  . ' // ' . config('app.name'))
+@section('meta_description', __('high-sender::smtp-accounts.meta_description'))
 
 @push('head')
     @include('high-sender::integration.favicons')
@@ -21,39 +21,39 @@
             'scope_api_params' => ['']
         ])
         <template slot="header">
-            <h3>{{__('high-sender::smtp_accounts.smtp_account_list') }}</h3>
+            <h3>{{__('high-sender::smtp-accounts.smtp_account_list') }}</h3>
         </template>
             <tb-column name="name" label="{{ __('high-sender::general.name') }}">
                 <template slot-scope="col">
                     @{{ col.data.name }}
                 </template>
             </tb-column>
-            <tb-column name="host" label="{{ __('high-sender::smtp_accounts.host') }}">
+            <tb-column name="host" label="{{ __('high-sender::smtp-accounts.host') }}">
                 <template slot-scope="col">
                     @{{ col.data.host }}
                 </template>
             </tb-column>
-           <tb-column name="port" label="{{ __('high-sender::smtp_accounts.port') }}">
+           <tb-column name="port" label="{{ __('high-sender::smtp-accounts.port') }}">
                <template slot-scope="col">
                    @{{ col.data.port }}
                </template>
            </tb-column>
-           <tb-column name="username" label="{{ __('high-sender::smtp_accounts.username') }}">
+           <tb-column name="username" label="{{ __('high-sender::smtp-accounts.username') }}">
                <template slot-scope="col">
                    @{{ col.data.username }}
                </template>
            </tb-column>
-           <tb-column name="encryption" label="{{ __('high-sender::smtp_accounts.encryption') }}">
+           <tb-column name="encryption" label="{{ __('high-sender::smtp-accounts.encryption') }}">
                <template slot-scope="col">
                    @{{ col.data.encryption }}
                </template>
            </tb-column>
-           <tb-column name="from_name" label="{{ __('high-sender::smtp_accounts.from_name') }}">
+           <tb-column name="from_name" label="{{ __('high-sender::smtp-accounts.from_name') }}">
                <template slot-scope="col">
                    @{{ col.data.from_name }}
                </template>
            </tb-column>
-           <tb-column name="from_address" label="{{ __('high-sender::smtp_accounts.from_address') }}">
+           <tb-column name="from_address" label="{{ __('high-sender::smtp-accounts.from_address') }}">
                <template slot-scope="col">
                    @{{ col.data.from_address }}
                </template>
@@ -65,7 +65,7 @@
                             {{ __('high-sender::general.options') }}
                         </button>
                         <cm-button @click="AWES._store.commit('setData', {param: 'editAccount', data: d.data}); AWES.emit('modal::test-account:open')">
-                            {{ __('high-sender::smtp_accounts.sent_test_email') }}
+                            {{ __('high-sender::smtp-accounts.sent_test_email') }}
                         </cm-button>
                         <cm-button @click="AWES._store.commit('setData', {param: 'editAccount', data: d.data}); AWES.emit('modal::edit-account:open')">
                             {{ __('high-sender::general.edit') }}
@@ -83,54 +83,54 @@
 @section('modals')
 
     {{--Test account--}}
-    <modal-window name="test-account" class="modal_formbuilder" title="{{ __('high-sender::smtp_accounts.sent_test_email') }}">
-        <form-builder method="POST" url="{{ route('high-sender.test_smtp_accounts.sent') }}" store-data="editAccount" @sended="AWES.emit('content::smtp_accounts_table:update')"
+    <modal-window name="test-account" class="modal_formbuilder" title="{{ __('high-sender::smtp-accounts.sent_test_email') }}">
+        <form-builder method="POST" url="{{ route('high-sender.test_smtp_accounts.sent') }}" store-data="editAccount" @sended="AWES.emit('content::smtp-accounts_table:update')"
                       send-text="{{ __('high-sender::general.sent') }}"
                       cancel-text="{{ __('high-sender::general.cancel') }}">
             <div class="section">
                 <fb-input type="hidden" name="id"></fb-input>
-                <fb-input name="email_to" label="{{ __('high-sender::smtp_accounts.email_to') }}"></fb-input>
+                <fb-input name="email_to" label="{{ __('high-sender::smtp-accounts.email_to') }}"></fb-input>
             </div>
         </form-builder>
     </modal-window>
 
     {{--Add account--}}
-    <modal-window name="form" class="modal_formbuilder" title="{{ __('high-sender::smtp_accounts.addition_account') }}">
-        <form-builder url="{{ route('high-sender.smtp_accounts.store') }}" @sended="AWES.emit('content::smtp_accounts_table:update')"
+    <modal-window name="form" class="modal_formbuilder" title="{{ __('high-sender::smtp-accounts.addition_account') }}">
+        <form-builder url="{{ route('high-sender.smtp_accounts.store') }}" @sended="AWES.emit('content::smtp-accounts_table:update')"
                       send-text="{{ __('high-sender::general.add') }}"
                       cancel-text="{{ __('high-sender::general.cancel') }}">
             <div class="section">
                 <fb-input name="name" label="{{ __('high-sender::general.name') }}"></fb-input>
-                <fb-input name="host" label="{{ __('high-sender::smtp_accounts.host') }}"></fb-input>
-                <fb-input name="port" label="{{ __('high-sender::smtp_accounts.port') }}"></fb-input>
-                <fb-input name="username" label="{{ __('high-sender::smtp_accounts.username') }}"></fb-input>
+                <fb-input name="host" label="{{ __('high-sender::smtp-accounts.host') }}"></fb-input>
+                <fb-input name="port" label="{{ __('high-sender::smtp-accounts.port') }}"></fb-input>
+                <fb-input name="username" label="{{ __('high-sender::smtp-accounts.username') }}"></fb-input>
                 <fb-input type="password" name="password" label="{{ __('high-sender::general.password') }}"></fb-input>
-                <fb-input name="encryption" label="{{ __('high-sender::smtp_accounts.encryption') }}"></fb-input>
-                <fb-input name="from_name" label="{{ __('high-sender::smtp_accounts.from_name') }}"></fb-input>
-                <fb-input name="from_address" label="{{ __('high-sender::smtp_accounts.from_address') }}"></fb-input>
+                <fb-input name="encryption" label="{{ __('high-sender::smtp-accounts.encryption') }}"></fb-input>
+                <fb-input name="from_name" label="{{ __('high-sender::smtp-accounts.from_name') }}"></fb-input>
+                <fb-input name="from_address" label="{{ __('high-sender::smtp-accounts.from_address') }}"></fb-input>
             </div>
         </form-builder>
     </modal-window>
 
     {{--Edit account--}}
-    <modal-window name="edit-account" class="modal_formbuilder" title="{{ __('high-sender::smtp_accounts.edition_account') }}">
-        <form-builder method="PATCH" url="{{ route('high-sender.smtp_accounts.index') }}/{id}" store-data="editAccount" @sended="AWES.emit('content::smtp_accounts_table:update')"
+    <modal-window name="edit-account" class="modal_formbuilder" title="{{ __('high-sender::smtp-accounts.edition_account') }}">
+        <form-builder method="PATCH" url="{{ route('high-sender.smtp_accounts.index') }}/{id}" store-data="editAccount" @sended="AWES.emit('content::smtp-accounts_table:update')"
                       send-text="{{ __('high-sender::general.save') }}"
                       cancel-text="{{ __('high-sender::general.cancel') }}">
             <fb-input name="name" label="{{ __('high-sender::general.name') }}"></fb-input>
-            <fb-input name="host" label="{{ __('high-sender::smtp_accounts.host') }}"></fb-input>
-            <fb-input name="port" label="{{ __('high-sender::smtp_accounts.port') }}"></fb-input>
-            <fb-input name="username" label="{{ __('high-sender::smtp_accounts.username') }}"></fb-input>
+            <fb-input name="host" label="{{ __('high-sender::smtp-accounts.host') }}"></fb-input>
+            <fb-input name="port" label="{{ __('high-sender::smtp-accounts.port') }}"></fb-input>
+            <fb-input name="username" label="{{ __('high-sender::smtp-accounts.username') }}"></fb-input>
             <fb-input type="password" name="password" label="{{ __('high-sender::general.password') }}"></fb-input>
-            <fb-input name="encryption" label="{{ __('high-sender::smtp_accounts.encryption') }}"></fb-input>
-            <fb-input name="from_name" label="{{ __('high-sender::smtp_accounts.from_name') }}"></fb-input>
-            <fb-input name="from_address" label="{{ __('high-sender::smtp_accounts.from_address') }}"></fb-input>
+            <fb-input name="encryption" label="{{ __('high-sender::smtp-accounts.encryption') }}"></fb-input>
+            <fb-input name="from_name" label="{{ __('high-sender::smtp-accounts.from_name') }}"></fb-input>
+            <fb-input name="from_address" label="{{ __('high-sender::smtp-accounts.from_address') }}"></fb-input>
         </form-builder>
     </modal-window>
 
     {{--Delete account--}}
-    <modal-window name="delete-account" class="modal_formbuilder" title="{{ __('high-sender::smtp_accounts.are_you_sure_delete_account') }}">
-        <form-builder name="delete-account" method="DELETE" url="{{ route('high-sender.smtp_accounts.index') }}/{id}" store-data="deleteAccount" @sended="AWES.emit('content::smtp_accounts_table:update')"
+    <modal-window name="delete-account" class="modal_formbuilder" title="{{ __('high-sender::smtp-accounts.are_you_sure_delete_account') }}">
+        <form-builder name="delete-account" method="DELETE" url="{{ route('high-sender.smtp_accounts.index') }}/{id}" store-data="deleteAccount" @sended="AWES.emit('content::smtp-accounts_table:update')"
                       send-text="{{ __('high-sender::general.yes') }}"
                       cancel-text="{{ __('high-sender::general.no') }}"
                       disabled-dialog>

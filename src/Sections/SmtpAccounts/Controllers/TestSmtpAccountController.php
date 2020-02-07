@@ -41,6 +41,6 @@ class TestSmtpAccountController extends BaseController
     public function sent(SentTestSmtpAccount $request)
     {
         $this->testSmtpAccounts->sentEmail($request->id, $request->email_to);
-       return notify(__('high-sender::smtp_accounts.email_was_successfully_send'));
+       return notify(__('high-sender::smtp-accounts.email_was_successfully_send'));
     }
 }
