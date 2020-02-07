@@ -84,7 +84,7 @@
 
     {{--Test account--}}
     <modal-window name="test-account" class="modal_formbuilder" title="{{ __('high-sender::smtp-accounts.sent_test_email') }}">
-        <form-builder method="POST" url="{{ route('high-sender.test_smtp_accounts.sent') }}" store-data="editAccount" @sended="AWES.emit('content::smtp-accounts_table:update')"
+        <form-builder method="POST" url="{{ route('high-sender.test_smtp_accounts.sent') }}" store-data="editAccount" @sended="AWES.emit('content::smtp_accounts_table:update')"
                       send-text="{{ __('high-sender::general.sent') }}"
                       cancel-text="{{ __('high-sender::general.cancel') }}">
             <div class="section">
@@ -96,7 +96,7 @@
 
     {{--Add account--}}
     <modal-window name="form" class="modal_formbuilder" title="{{ __('high-sender::smtp-accounts.addition_account') }}">
-        <form-builder url="{{ route('high-sender.smtp_accounts.store') }}" @sended="AWES.emit('content::smtp-accounts_table:update')"
+        <form-builder url="{{ route('high-sender.smtp_accounts.store') }}" @sended="AWES.emit('content::smtp_accounts_table:update')"
                       send-text="{{ __('high-sender::general.add') }}"
                       cancel-text="{{ __('high-sender::general.cancel') }}">
             <div class="section">
@@ -114,7 +114,7 @@
 
     {{--Edit account--}}
     <modal-window name="edit-account" class="modal_formbuilder" title="{{ __('high-sender::smtp-accounts.edition_account') }}">
-        <form-builder method="PATCH" url="{{ route('high-sender.smtp_accounts.index') }}/{id}" store-data="editAccount" @sended="AWES.emit('content::smtp-accounts_table:update')"
+        <form-builder method="PATCH" url="{{ route('high-sender.smtp_accounts.index') }}/{id}" store-data="editAccount" @sended="AWES.emit('content::smtp_accounts_table:update')"
                       send-text="{{ __('high-sender::general.save') }}"
                       cancel-text="{{ __('high-sender::general.cancel') }}">
             <fb-input name="name" label="{{ __('high-sender::general.name') }}"></fb-input>
@@ -130,7 +130,7 @@
 
     {{--Delete account--}}
     <modal-window name="delete-account" class="modal_formbuilder" title="{{ __('high-sender::smtp-accounts.are_you_sure_delete_account') }}">
-        <form-builder name="delete-account" method="DELETE" url="{{ route('high-sender.smtp_accounts.index') }}/{id}" store-data="deleteAccount" @sended="AWES.emit('content::smtp-accounts_table:update')"
+        <form-builder name="delete-account" method="DELETE" url="{{ route('high-sender.smtp_accounts.index') }}/{id}" store-data="deleteAccount" @sended="AWES.emit('content::smtp_accounts_table:update')"
                       send-text="{{ __('high-sender::general.yes') }}"
                       cancel-text="{{ __('high-sender::general.no') }}"
                       disabled-dialog>
