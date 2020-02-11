@@ -16,7 +16,7 @@
        <div class="section">
         @table([
             'name' => 'smtp_accounts_table',
-            'row_url'=> route('high-sender.smtp_accounts.index') . '/{id}',
+            'row_url'=> '',
             'scope_api_url' => route('high-sender.smtp_accounts.scope'),
             'scope_api_params' => ['']
         ])
